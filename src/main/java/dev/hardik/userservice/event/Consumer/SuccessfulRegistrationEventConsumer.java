@@ -3,6 +3,7 @@ package dev.hardik.userservice.event.Consumer;
 import dev.hardik.userservice.event.SuccessfulRegistrationEvent;
 import dev.hardik.userservice.model.User;
 import dev.hardik.userservice.model.VerificationToken;
+import dev.hardik.userservice.repository.VerificationTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;

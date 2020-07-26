@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 //Hibernate allows to not write native queries but higher level thing like .save to save in database
 //JPA is technology allows to save(Persist) the data ,store data somewhere in either Database, or messaging queue. etc.
-@SpringBootApplication()
+@SpringBootApplication(exclude = SecurityAutoConfiguration.class)
 public class UserserviceApplication {
 
 	public static void main(String[] args) {

@@ -28,7 +28,7 @@ public class UserServiceImpl implements  UserService {
     @Autowired
     VerificationTokenRepository verificationTokenRepository;
 
-    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
+//    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder(12);
 
     @Override
     public User registerUser(UserDto userDto) {
@@ -41,7 +41,7 @@ public class UserServiceImpl implements  UserService {
          user.setEmail(userDto.getEmail());
          user.setFullName(userDto.getName());
          user.setActive(true);
-         user.setPassword(passwordEncoder.encode((userDto.getPassword())));//encrypt the password
+         user.setPassword(userDto.getPassword());//encrypt the password
         User savedUser = userRepository.save(user);
 
         applicationEventPublisher.publishEvent(
@@ -79,7 +79,7 @@ public class UserServiceImpl implements  UserService {
            verifiedUser.setActive(true);
            userRepository.save(verifiedUser);
            verificationTokenRepository.deleteByToken(verificationToken.getToken());
-
+           return  verifiedUser;
            //token has not expired
 
        }

@@ -37,7 +37,18 @@ public class RegistrationController {
         {
 
 
-            userService.validateUser(token);
+           User usr =  userService.validateUser(token);
+            if(usr!=null)
+            {
+                return new ResponseDto<>(
+
+                        HttpStatus.CONFLICT,
+                        new UserResponseDto(usr.getId(),usr.getFullName(),usr.getEmail(),usr.getPassword(),usr.getActive())
+                );
+
+            }
+
+            return  null;
 
         }
 
