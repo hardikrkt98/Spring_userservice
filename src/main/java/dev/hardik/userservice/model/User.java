@@ -30,6 +30,15 @@ public class   User {
                               inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
     private List<Role> roles;
 
+
+
+    //One to many means that one row is mapped to many rows in another table.
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinTable(name="user_submissions",joinColumns =@JoinColumn(name="user_id",referencedColumnName = "id"),
+                                       inverseJoinColumns = @JoinColumn(name = "submission_id",referencedColumnName = "id"))
+    private List<Submission> submissions;
+
+
     private  String email;
 
 

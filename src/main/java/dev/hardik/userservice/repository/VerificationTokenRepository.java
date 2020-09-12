@@ -13,6 +13,6 @@ public interface VerificationTokenRepository extends JpaRepository<VerificationT
 
     VerificationToken save(User user);
 
-    VerificationToken deleteByToken(String token);
+    void deleteByToken(String token);
 
 }

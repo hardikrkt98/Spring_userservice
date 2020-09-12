@@ -17,7 +17,7 @@ import java.util.Date;
 
 @Service
 @Transactional
-public class UserServiceImpl implements  UserService {
+public class UserServiceImpl implements    UserService {
 
     @Autowired
     UserRepository userRepository;
